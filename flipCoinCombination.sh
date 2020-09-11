@@ -53,4 +53,68 @@ echo "HT= $HT %"
 echo "TH= $TH %"
 echo "TT= $TT %"
 
+dictionary[HHH]=0
+dictionary[HHT]=0
+dictionary[HTH]=0
+dictionary[THH]=0
+dictionary[TTT]=0
+dictionary[HTT]=0
+dictionary[TTH]=0
+dictionary[THT]=0
+for (( i=0; i<$limit; i++ ))
+do
+        coinFlip=$(( (RANDOM%8)+1 ))
+        if [ $coinFlip -eq 1 ]
+        then
+                dictionary[HHH]=$(( ${dictionary[HHH]}+1 ))
+
+        elif [ $coinFlip -eq 2 ]
+        then
+                dictionary[HHT]=$(( ${dictionary[HHT]}+1 ))
+
+         elif [ $coinFlip -eq 3 ]
+         then
+                dictionary[HTH]=$(( ${dictionary[HTH]}+1 ))
+	
+        elif [ $coinFlip -eq 4 ]
+        then
+                dictionary[THH]=$(( ${dictionary[THH]}+1 ))
+
+         elif [ $coinFlip -eq 5 ]
+         then
+                dictionary[TTT]=$(( ${dictionary[TTT]}+1 ))
+	 elif [ $coinFlip -eq 6 ]
+        then
+                dictionary[HTT]=$(( ${dictionary[HTT]}+1 ))
+
+         elif [ $coinFlip -eq 7 ]
+         then
+                dictionary[TTH]=$(( ${dictionary[TTH]}+1 ))
+
+
+        else
+                dictionary[THT]=$(( ${dictionary[THT]}+1 ))
+        fi
+
+done
+
+
+HHH=$(( $(( ${dictionary[HHH]}*100 ))/$limit ))
+HHT=$(( $(( ${dictionary[HHT]}*100 ))/$limit ))
+HTH=$(( $(( ${dictionary[HTH]}*100 ))/$limit ))
+THH=$(( $(( ${dictionary[THH]}*100 ))/$limit ))
+TTT=$(( $(( ${dictionary[TTT]}*100 ))/$limit ))
+HTT=$(( $(( ${dictionary[HTT]}*100 ))/$limit ))
+TTH=$(( $(( ${dictionary[TTH]}*100 ))/$limit ))
+THT=$(( $(( ${dictionary[THT]}*100 ))/$limit ))
+
+echo "HHH= $HHH %"
+echo "HHT= $HHT %"
+echo "HTH= $HTH %"
+echo "THH= $THH %"
+echo "TTT= $TTT %"
+echo "HTT= $HTT %"
+echo "TTH= $TTH %"
+echo "THT= $THT %"
+
 
